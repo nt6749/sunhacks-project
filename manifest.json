@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "Save the Amazon",
+    "version": "1.0",
+    "description": "Want to save Amazon forests? This extension is just for you. Shows you how many Amazon trees saved based on the product you are planning to buy. It also gives you other eco-friendly alternatives so you can save even more Amazon trees. How cool is that? So, what are you waiting for? Get this extension now!",
+    "permissions": [
+        "storage",
+        "tabs",
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://www.amazon.com/*",
+        "http://127.0.0.1:5000/echo"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "128": "icons/icon128.png"
+        }
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://www.amazon.com/dp/*", "https://www.amazon.com/*/dp/*"],
+            "js": ["content.js"]
+        }
+    ]
+}
