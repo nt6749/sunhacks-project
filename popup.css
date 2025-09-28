@@ -1,0 +1,112 @@
+/* --- Modern Look for "Save the Amazon" Extension --- */
+
+body {
+    /*Modern System Font*/
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    color: #384238;
+    text-align: center;
+    width: 300px;
+    padding: 24px;
+    margin: 0;
+    background-color: #fafffa;
+
+    /*Squircle Shape & Shadow*/
+    border-radius: 16px; 
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); 
+    overflow: hidden; 
+}
+
+h1 {
+    font-size: 22px;
+    font-weight: 700; 
+    color: #005a00; 
+    margin: 0 0 10px 0;
+}
+
+#score-section {
+    margin-bottom: 15px;
+}
+
+#tree-count {
+    font-size: 18px;
+    font-weight: 600; 
+    color: #2e7d32;
+    margin: 0 0 10px 0;
+}
+
+#forest {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Aligns trees to the bottom */
+    gap: 8px;
+    flex-wrap: wrap;
+    min-height: 50px; /* Gives the trees space */
+    margin-bottom: 15px;
+}
+.tree {
+    width: 28px; /* Canopy width */
+    height: 28px; /* Canopy height */
+    background-color: #2e7d32; /* A nice tree green */
+    border-radius: 50%; /* Makes the canopy a circle */
+    position: relative;
+    opacity: 0; /* Starts invisible for the animation */
+    transform-origin: bottom center; /* Animation grows from the bottom up */
+    animation: grow 0.6s ease-out forwards;
+}
+
+.tree::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Positions trunk below the canopy */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px; /* Trunk width */
+    height: 10px; /* Trunk height */
+    background-color: #5d4037; /* A brown color for the trunk */
+}
+
+@keyframes grow {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#alternatives {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0; /* A lighter, subtle separator line */
+}
+
+#alternatives h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #005a00;
+    margin: 0 0 15px 0;
+}
+
+#alt-products {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Space between alternative product links */
+}
+
+#alt-products li a {
+    display: block;
+    padding: 10px;
+    background-color: #e8f5e9; 
+    color: #1b5e20; /*Dark green textx*/
+    border-radius: 8px; 
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#alt-products li a:hover {
+    background-color: #dceddc; /* Slightly darker on hover */
+    transform: translateY(-2px); /* Lifts the link slightly on hover */
+}
